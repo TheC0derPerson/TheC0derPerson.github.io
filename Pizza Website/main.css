@@ -1,0 +1,141 @@
+p{
+	color: black;
+	font-size: 20px;
+}
+
+.listitem {
+	color: red;
+	font-size: 1em;
+}
+
+.paragraph {
+	color: black;
+	font-size: 1em;
+}
+
+.warp-list {
+	width: 20%;
+	border-radius: 20px;
+	border: 7.5px ridge red;
+	align-items: center;
+}
+
+.warp-trivia {
+	width: 20%;
+	border-radius: 20px;
+	border: 5px dotted red;
+	align-items: center;
+	padding: 25px;
+}
+
+.pizza {
+	color: red;
+}
+
+#background {
+	background-color: white;
+}
+
+#btn {
+	width: 70px;
+	height: 35px;
+	color: black;
+	background-color: white;
+	border-radius: 5px;
+}
+ 
+#banner {
+	height:35px;
+	width:100%;
+	border:5px solid red;
+	background-color:red;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+#footer {
+	height:25px;
+	width:100%;
+	border:5px solid red;
+	background-color:red;
+	color: black;
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#one {
+	height: 150px;
+	width: 150px;
+	background-color: red;
+	display: inline-block;
+	position: fixed;
+	left: 25%;
+}
+
+#two {
+	height: 150px;
+	width: 150px;
+	background-color: blue;
+	display: inline-block;
+	z-index: 1;
+	position: relative;
+	top: 250px;
+	left: 600;
+
+}
+
+#three {
+	height: 150px;
+	width: 150px;
+	background-color: green;
+	display: inline-block;
+	postition: absolute;
+	z-index: 2;
+}
+
+#background-h {
+	height: 2048px;
+}
+
+.navitem {
+	list-style-type:none;
+	display:inline;
+	margin-right:.3em;
+	padding:2px 5px;
+}
+
+#navmenu {
+	height: 35px;
+	text-align: center;
+	font-size: 1.5em;
+	background-color: lightgray;
+}
+
+a:link{
+	color:blue;
+}
+
+a:visited{
+	color:red;
+}
+
+a:hover{
+	color:black;
+}
+
+a:active{
+	color:red;
+}
+
+#pictures {
+	text-align: center;
+}
+
+.aboutme {
+	text-align: center;
+	font-size: 1.5em;
+}
