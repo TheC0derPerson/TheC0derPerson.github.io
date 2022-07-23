@@ -1,0 +1,65 @@
+.form-margin{
+	margin-right: 4px;
+}
+
+.form-margin-top {
+	margin-top: 8px;
+}
+
+.icon {
+	width: 50px;
+	height: 50px;
+	padding: 5px;
+}
+
+#logo {
+	width: 40%;
+}
+
+#menu {
+	margin-top:10px;
+}
+
+#comments {
+	border:5px solid blue;
+	margin-top:5px;
+	height:900px;
+	width:100%;
+	background: linear-gradient(to bottom right, white, lightblue);
+}
+
+#form {
+	border: 7px solid blue;
+	border-radius: 25px;
+	height: 700px;
+	float: -right;
+	margin: 10px;
+	background-color: lightblue;
+}
+
+#name {
+	width:150px;
+	margin-right:8px; 
+}
+
+#header {
+	text-align:center;
+	background-color:white;
+	font-size:1.85em;
+	font-weight:bolder;
+	color:black;
+	border-radius:20px;
+	margin-left:-16px;
+	margin-right:-16px;
+	margin-bottom:15px;
+}
+
+#padded-form-text {
+	padding-right: 10px;
+}
+
+#userComment{
+	border:2px solid purple;
+	border-radius: 15px;
+	width:200px;
+}
