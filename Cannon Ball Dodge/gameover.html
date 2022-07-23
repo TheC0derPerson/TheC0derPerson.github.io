@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title> Cannon Ball Dodge </title>
+		<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script>
+			function start(){
+				sjs.open("target",500,400);
+
+				//Backdrop & Clouds
+				var clouds = new sjs.Image("Images/clouds.jpg")
+				clouds.setSize(1000,400);
+				var background = new sjs.Image("Images/backdrop.png");
+				background.type = "background";
+				background.setSize(1100, 125);
+				background.noBounds = true;
+				background.center().offset(300,175)
+				
+				//Text Objects			
+				var results = new sjs.Text("Results:", 50, "black");
+				results.center().offset(0, -150)
+				var score_txt = new sjs.Text("Score: 0", 30, "black");
+				score_txt.setText("Score: " +localStorage.getItem("score"));
+				score_txt.center().offset(0, -90);
+
+				//Buttons
+				var start = new sjs.Button("Play Again", function(){
+					window.location = "game.html";
+				});
+				start.center().offset(0,0);
+				var menu = new sjs.Button("Back To Menu", function(){
+					window.location = "index.html";
+				});
+				menu.center().offset(0,40);
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1> Cannon Ball Dodge </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html

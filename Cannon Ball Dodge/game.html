@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title> Cannon Ball Dodge </title>
+		<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script>
+			function start(){
+				sjs.open("target",500,400);
+
+				//Backdrop & Clouds
+				var clouds = new sjs.Image("Images/clouds.jpg")
+				clouds.setSize(1000,400);
+				var background = new sjs.Image("Images/backdrop.png");
+				background.type = "background";
+				background.setSize(1100, 125);
+				background.noBounds = true;
+				background.center().offset(300,175)
+
+				
+				//Player Properties
+				var player = new sjs.Image("Images/ninja_right.png")
+				player.type = "player";
+				player.setSize(70, 60);
+				player.center().bottom().offset(0,-100);
+				player.setGravity(5);
+				player.friction = .3;
+
+				sjs.scrollable(player, clouds);
+
+				//score
+
+				//FireBalls
+				var extra_ball_enabled = false;
+				var extra_extra_ball_enabled = false;
+				setInterval(function(){
+					var x = Math.floor(Math.random() * 1000);
+					var y = 0;
+					var fireball = new sjs.Image("Images/fireball.png.png");
+					fireball.type = "fireball";
+					fireball.setGravity(4);
+					fireball.setSize(90,100);
+					fireball.noBounds = true;
+					fireball.moveTo(x, y);
+					fireball.friction = .2;
+				}, 	1000);
+				setInterval(function(){
+					if(extra_ball_enabled == true){
+						var x = Math.floor(Math.random() * 1000);
+						var y = 0;
+						var fireball = new sjs.Image("Images/fireball.png.png");
+						fireball.type = "fireball";
+						fireball.setGravity(4);
+						fireball.setSize(90,100);
+						fireball.noBounds = true;
+						fireball.moveTo(x, y);
+						fireball.friction = .2;	
+					}
+				}, 720);
+				setInterval(function(){
+					if(extra_extra_ball_enabled == true){
+						var x = Math.floor(Math.random() * 1000);
+						var y = 0;
+						var fireball = new sjs.Image("Images/fireball.png.png");
+						fireball.type = "fireball";
+						fireball.setGravity(4);
+						fireball.setSize(90,100);
+						fireball.noBounds = true;
+						fireball.moveTo(x, y);
+						fireball.friction = .2;	
+					}
+				}, 1300);
+				setTimeout(function(){
+					extra_ball_enabled = true;
+				}, 10000);
+				setTimeout(function(){
+					extra_extra_ball_enabled = true;
+				}, 20000);
+
+				//Ground Explostion
+				setInterval(function(){
+					var x = Math.floor(Math.random() * 900);
+					var y = 310;
+					var caution = new sjs.Image("Images/Danger_Symbol.png");
+					caution.type = "caution";
+					caution.setSize(75,75);
+					caution.noBounds = true;
+					caution.moveTo(x, y + 10);
+					setTimeout(function(){
+						caution.destroy();
+						var explostion = new sjs.Image("Images/Explostion.gif");
+						explostion.type = "explostion";
+						explostion.setSize(100,100);
+						explostion.noBounds = true;
+						explostion.moveTo(x, y);
+						setTimeout(function(){
+							explostion.destroy();
+						}, 500);
+					}, 1000);
+				}, 	2000);
+
+
+				//player controls
+				sjs.keyDown(LEFT_KEY, function(){
+					player.pushLeft(5);
+					player.setImage("Images/ninja_left.png")
+				});
+				sjs.keyDown(RIGHT_KEY, function(){
+					player.pushRight(5);
+					player.setImage("Images/ninja_right.png")
+				});
+				//Jumping Code
+				var canJump = true;
+				sjs.keyDown(UP_KEY, function(){
+					if(canJump == true){
+						canJump = false;
+						player.pushUp(50);
+					} //end canJump if statement
+				}); //end Up key up
+					
+				//OnHit Functions
+				sjs.onHit("player", "background", function(x,y){
+					sjs.stoppedBy(x,y);
+					canJump = true;					
+				});
+				sjs.onHit("fireball", "background", function(x,y){
+					x.destroy();		
+				});
+				sjs.onHit("player", ["fireball","explostion"], function(x,y){
+					window.location = "gameover.html"
+				});
+				
+				//score
+				var score = 0;
+				localStorage.setItem("score", score);
+				var scoretxt = new sjs.Text("Score: 0", 30, "black");
+				scoretxt.fixed = true;
+				setInterval(function(){
+					score = score + 1;
+					scoretxt.setText("Score: "+ score)
+					localStorage.setItem("score", score);
+				},1000);
+
+			} //end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1> Cannon Ball Dodge </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html
