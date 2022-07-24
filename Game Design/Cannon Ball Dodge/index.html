@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title> Cannon Ball Dodge </title>
+		<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script>
+			function start() {
+				// body...
+				sjs.open("target",500,400);
+
+				//Backdrop & Clouds
+				var clouds = new sjs.Image("Images/clouds.jpg")
+				clouds.setSize(1000,400);
+				var background = new sjs.Image("Images/backdrop.png");
+				background.type = "background";
+				background.setSize(1100, 125);
+				background.noBounds = true;
+				background.center().offset(300,175)
+				
+				//fireball 
+				var fireball = new sjs.Image("Images/fireball.png.png")
+				fireball.type = "fireball";
+				fireball.setSize(90,100);
+				fireball.noBounds = true;
+				fireball.moveTo(30,100);
+
+				//ground explostion
+				var x = 340
+				var y = 310;
+				var caution = new sjs.Image("Images/Danger_Symbol.png");
+				caution.type = "caution";
+				caution.setSize(75,75);
+				caution.noBounds = true;
+				caution.moveTo(x, y + 10);
+
+				//Player Properties
+				var player = new sjs.Image("Images/ninja_right.png")
+				player.type = "player";
+				player.setSize(70, 60);
+				player.center().bottom().offset(0,125);
+				player.setGravity(5);
+				player.friction = .3;
+
+				sjs.onHit("player", "background", function(x,y){
+					sjs.stoppedBy(x,y);			
+				});
+
+				var title = new sjs.Text("Cannon Ball Dodge", 50, "black");
+				title.center().offset(0,-150);
+
+				var howTo = new sjs.Button("Instructions", function(){
+					window.location = "info.html";
+				});
+				howTo.center().offset(0,-30);
+
+				var gamebtn = new sjs.Button("Play", function(){
+					window.location = "game.html";
+				});
+				gamebtn.center().offset(0, 15);
+
+			} //end start
+
+
+		</script>
+	</head>
+	<body onload="start()">
+		<h1> Cannon Ball Dodge </h1>
+
+		<div id="target" style="margin:auto;background:grey;"></div>
+	</body>
+</html
