@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title> Regulation Racing! </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script> 
+			function start(){
+				sjs.open("target", 800, 500);
+
+				var bg = new sjs.Image("Images/indexBG.jpg");
+				bg.setSize(sjs.getWidth(), sjs.getHeight());
+
+				var car1 = new sjs.Image("Images/car1.png");
+				car1.setSize(500,220);
+				car1.moveTo(-100, 240);
+				car1.noBounds = true;
+
+				var car2 = new sjs.Image("Images/car2.png");
+				car2.setSize(600,200);
+				car2.moveTo(-100, 330);
+				car2.noBounds = true;	
+
+				var title = new sjs.Text("Regulation Racing!", 50, "blue");
+				title.centerH().offset(0,50)
+
+				var btn = new sjs.Button("Let's Play!", function(){
+					window.location = "game.html";
+				})
+				btn.center();
+
+				var btn2 = new sjs.Button("How to Play", function(){
+					window.location = "howTo.html";
+				})
+				btn2.center().offset(0, 50);
+
+			} // end function start
+		</script>
+	</head>
+	<body onload="start()">
+		<div id="target" style="overflow:hidden; background-color:black; margin:auto;"></div>
+	</body>
+</html>
